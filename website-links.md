@@ -7,11 +7,11 @@ admin.ch
 --------
 Fetch News and Announcements by ReleaseYEAR - bottom of page ( AS-xxx xxx Number)
 https://www.admin.ch/gov/de/start/bundesrecht/amtliche-sammlung.html
-- can get a lists of all anouncements by year and date
+- can get a lists of all announcements by year and date
 
 Fetch News by date ( RSS FEED )
 https://www.admin.ch/gov/de/start/bundesrecht/suche-und-neuigkeiten.html
-- we can fetch latest anouncements with (
+- we can fetch latest announcements with (
   SR Number and 
   ReleaseDate and 
   AS Number, 
