@@ -38,6 +38,7 @@ no changes in dsg resent changes
     - [ ] sometimes the post just a diff (which is the most interesting)
     
 - knowing what the change is (that is the meaning or scope)
+test
 - check relevancy
 - define relevant "Buzz Words" / relevant fields/topics for the matching Notifications
 - push relevant information
