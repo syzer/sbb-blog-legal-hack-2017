@@ -27,6 +27,7 @@ no changes in dsg resent changes
 - Railway Law
 - Monitoring
 - Energy
+- DSG (Data Protection act)
 - Employment (we will focus on this one)
 
 # challenges(things to solve):
@@ -99,3 +100,10 @@ Voraussetzungen der Verweigerung der Akteneinsicht gemäss Art. 9 DSG. Die Einsi
 
 Feature :
 bold text => Art. 33 und 47 Abs. 1 lit. a ATSG; Art. 8 DSG => relevant
+
+
+## swiss lex (not for free)
+- 3rd party
+
+## european ruling
+[http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=de]()
