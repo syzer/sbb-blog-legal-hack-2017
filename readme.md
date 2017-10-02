@@ -6,6 +6,13 @@ LegalHack2017 @Zurich
 # admin.ch
 Article is in states: in kraft vs in force
 
+
+## search for SRG (unique number)
+each document has unique id
+ex: try searching for DSG:
+[https://www.admin.ch/opc/de/classified-compilation/19920153/index.html]()
+
+
 ## general law
 [https://www.admin.ch/opc/de/classified-compilation/19920153/index.html]()
 no changes in dsg resent changes
