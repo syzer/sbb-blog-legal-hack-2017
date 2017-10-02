@@ -103,6 +103,10 @@ bold text => Art. 33 und 47 Abs. 1 lit. a ATSG; Art. 8 DSG => relevant
 
 https://www.admin.ch/opc/de/classified-compilation/19930159/changes.html
 
+https://www.admin.ch/opc/de/classified-compilation/19930159/index.html
+
+https://www.admin.ch/opc/de/classified-compilation/19930159/history.html
+
 
 ## swiss lex (not for free)
 - 3rd party
