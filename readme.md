@@ -43,7 +43,9 @@ test
 - define relevant "Buzz Words" / relevant fields/topics for the matching Notifications
 - push relevant information
 - figure out what needs to be changed in businees process to comply with taht change
-...sdfjsldkfj
+- how can the user add or delete sources
+- how can the user define words/topics for notifications
+- what are we building? concept, prototype, software, app, E-Mail Notification....??
 
 
 # TODO (for further revision)
