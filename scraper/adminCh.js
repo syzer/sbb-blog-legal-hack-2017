@@ -42,23 +42,20 @@ cachios
       // '4. Kapitel: Schlussbestimmungen' ]
       .map(s => s.trim()),
     // fullHtml: $('#lawcontent').html().trim()
-    // section0: $('#lawcontent h2').eq(0).text(),
-    // art0: $('#lawcontent h5').eq(0).text(),
-    // art0Contents: $('#lawcontent h5').eq(0).next().text(), // can also extracts <p> here
-    // art0ContentsHtml: $('#lawcontent h5').eq(0).next().html(), // can also extracts <p> here
-    // art1: $('#lawcontent h5').eq(1).text(),
-    // art1Contents: $('#lawcontent h5').eq(1).next().text(),
     contents: $('#lawcontent h2')
-      .eq(0).next()
-      .map((i, e) =>
-        $(e).find('h5')
+      .map((i, s) => ({
+        sectionName: $(s).text().trim(),
+        sectionContents: $(s).next()
           .map((i, e) =>
-            ({
-              articleName: $(e).text().trim(),
-              articleContents: $(e).nextAll().text() // can split by <p> need p.name
-            })
+            $(e).find('h5')
+              .map((i, e) =>
+                ({
+                  articleName: $(e).text().trim(),
+                  articleContents: $(e).nextAll().html() // can split by <p> need p.name
+                })
+              ).get()
           ).get()
-      ).get()
+      })).get()
   }))
   .then(JSON.stringify)
   .then(console.log)
