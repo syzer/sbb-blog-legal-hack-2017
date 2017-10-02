@@ -23,7 +23,11 @@ no changes in dsg resent changes
 ## actual changes to that law and other law related
 [https://www.admin.ch/opc/de/classified-compilation/19920153/changes.html]()
 
-
+# Monitoring fields:
+- Railway Law
+- Monitoring
+- Energy
+- Employment (we will focus on this one)
 
 # challenges(things to solve):
 - figure out new changes on the page (updates to a law)
