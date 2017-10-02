@@ -34,7 +34,7 @@ cachios
     title: $('h1').eq(3).html(),
     preamble: $('a[name=praeambel]').parent().text(),
     chapters: $('h1.title')
-      // jquery is insane
+    // jquery is insane
       .map((i, el) => $(el).text()).get()
       // [ '1. Kapitel: Bearbeiten von Personendaten durch private Personen',
       // '2. Kapitel: Bearbeiten von Personendaten durch Bundesorgane',
@@ -42,22 +42,28 @@ cachios
       // '4. Kapitel: Schlussbestimmungen' ]
       .map(s => s.trim()),
     // fullHtml: $('#lawcontent').html().trim()
-    section0: $('#lawcontent h2').eq(0).text(),
-    art0: $('#lawcontent h5').eq(0).text(),
-    art0Contents: $('#lawcontent h5').eq(0).next().text(), // can also extracts <p> here
+    // section0: $('#lawcontent h2').eq(0).text(),
+    // art0: $('#lawcontent h5').eq(0).text(),
+    // art0Contents: $('#lawcontent h5').eq(0).next().text(), // can also extracts <p> here
     // art0ContentsHtml: $('#lawcontent h5').eq(0).next().html(), // can also extracts <p> here
-    art1: $('#lawcontent h5').eq(1).text(),
-    art1Contents: $('#lawcontent h5').eq(1).next().text(),
-
+    // art1: $('#lawcontent h5').eq(1).text(),
+    // art1Contents: $('#lawcontent h5').eq(1).next().text(),
+    contents: $('#lawcontent h2')
+      .eq(0).next()
+      .map((i, e) =>
+        $(e).find('h5')
+          .map((i, e) =>
+            ({
+              articleName: $(e).text().trim(),
+              articleContents: $(e).nextAll().text() // can split by <p> need p.name
+            })
+          ).get()
+      ).get()
   }))
+  .then(JSON.stringify)
   .then(console.log)
   .catch(console.error)
 
-
-  // .map(function(i, el) {
-  //   this === el
-    // return $(this).text();
-  // }).get().join(' ')
 
 // TODO https://www.admin.ch/opc/search/?text=SR+822.111&source_lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation&lang=de
 const tags = `
