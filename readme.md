@@ -58,7 +58,7 @@ test
 
 # TODO (for further revision)
 ## blog (its another source)
-http://swissblawg.ch/2017/09/entwurf-des-datenschutzgesetzes.html
+[http://swissblawg.ch/2017/09/entwurf-des-datenschutzgesetzes.html]()
 
 - admin Botschaft (detailed information)
 
