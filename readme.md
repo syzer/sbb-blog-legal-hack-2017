@@ -51,6 +51,8 @@ test
 - how can the user define words/topics for notifications
 - what are we building? concept, prototype, software, app, E-Mail Notification....??
 - Full text search / Buzz words relevant?
+- GUI / Design
+- Presentation > who prepares prototype / additional slides with vision / idea ...
 
 
 # TODO (for further revision)
