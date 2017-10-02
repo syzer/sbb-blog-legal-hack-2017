@@ -7,21 +7,15 @@ const writeAsync = util.promisify(fs.writeFile)
 const cachios = require('cachios')
 const cheerio = require('cheerio')
 const _ = require('lodash')
+const { cheerioLoad, save } = require('./lib')
 
-const searchUrl = `https://www.admin.ch/opc/search/?text=SR+822.111&source_lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation&lang=de`
-const save = srNumber => {
-  const id = _.uniqueId(srNumber)
-  return data => {
-    writeAsync(`./data/${id}.html`, data, 'utf-8')
-      .catch(console.error)
-    return data // proxy thru
-  }
-}
+// const sr = `822.111` // employment law
+const sr = `235.11` // DSG law
 
-//TODO change me
-const sr = `SR+822.111`
+// const searchUrl = `https://www.admin.ch/opc/search/?text=SR+822.111&source_lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation&lang=de`
+const searchUrl = `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
 
-const cheerioLoad = text => cheerio.load(text, { decodeEntities: false })
+// https://www.admin.ch/opc/de/classified-compilation/19930159/index.html
 
 cachios
   .get(searchUrl)
