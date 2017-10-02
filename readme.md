@@ -46,6 +46,7 @@ test
 - how can the user add or delete sources
 - how can the user define words/topics for notifications
 - what are we building? concept, prototype, software, app, E-Mail Notification....??
+- Full text search / Buzz words relevant?
 
 
 # TODO (for further revision)
