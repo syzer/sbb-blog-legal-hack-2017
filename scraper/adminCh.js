@@ -39,8 +39,8 @@ cachios
     isInForce: $('div.soft-green>div').html() === 'Dieser Text ist in Kraft.',
     sr: $('h1').eq(2).html(),
     title: $('h1').eq(3).html(),
-    //Verordnung des WBF über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft
-    //Regulation of the WBF on dangerous and arduous work during pregnancy and maternity
+    // Verordnung des WBF über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft
+    // Regulation of the WBF on dangerous and arduous work during pregnancy and maternity
   }))
   .then(console.log)
   .catch(console.error)
@@ -51,3 +51,32 @@ const tags = `
 <div id="tags" style="display:none">
   <ul>
   <li><a href='#' >SR 822.111</a></li>`
+
+// TODO extract this
+// Beschluss	20. März 2001
+// Inkrafttreten	1. April 2001
+// Quelle	AS 2001 935
+// Chronologie	Chronologie
+// Änderungen	Änderungen
+
+
+// decision	20 March 2001
+// Come into effect	1 April 2001
+// source	AS 2001 935
+// chronology	chronology
+// amendments	amendments
+
+
+// Ex:
+//   https://www.admin.ch/opc/de/classified-compilation/20002241/index.html
+//   HR defined its important
+// 1. who applies
+// 2. scope of the law
+
+// ex:
+// Pregnant women may not be employed in workplaces with a sound pressure level of ≥ 85 dB (A) (L EX 8 hrs). Infringements of infra- or ultrasound shall be assessed separately.
+// limits sound
+
+// ex (court decision)
+// decibels leavel measuringm changes how building would be build
+
