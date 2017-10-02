@@ -5,7 +5,6 @@ const util = require('util')
 const fs = require('fs')
 const writeAsync = util.promisify(fs.writeFile)
 const cachios = require('cachios')
-const cheerio = require('cheerio')
 const _ = require('lodash')
 const { cheerioLoad, save } = require('./lib')
 
@@ -16,16 +15,16 @@ const sr = `235.11` // DSG law
 const searchUrl = `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
 
 // https://www.admin.ch/opc/de/classified-compilation/19930159/index.html
+// https://www.admin.ch/opc/de/classified-compilation/20002241/index.html
 
+// Verordnung des WBF über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft
+// Regulation of the WBF on dangerous and arduous work during pregnancy and maternity
+
+
+// Data is structured Chapter => section => article
+// We can also extracts tags about documents, from tag cloud
 cachios
   .get(searchUrl)
-  .then(({ data }) => data)
-  .then(save(sr))
-  .then(cheerio.load)
-  // TODO grab tags also
-  .then($ => $('div.results a').attr('href')) // first link
-  // https://www.admin.ch/opc/de/classified-compilation/20002241/index.html
-  .then(url => cachios.get(url))
   .then(({ data }) => data)
   .then(save(sr))
   .then(cheerioLoad)
@@ -33,12 +32,32 @@ cachios
     isInForce: $('div.soft-green>div').html() === 'Dieser Text ist in Kraft.',
     sr: $('h1').eq(2).html(),
     title: $('h1').eq(3).html(),
-    // Verordnung des WBF über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft
-    // Regulation of the WBF on dangerous and arduous work during pregnancy and maternity
+    preamble: $('a[name=praeambel]').parent().text(),
+    chapters: $('h1.title')
+      // jquery is insane
+      .map((i, el) => $(el).text()).get()
+      // [ '1. Kapitel: Bearbeiten von Personendaten durch private Personen',
+      // '2. Kapitel: Bearbeiten von Personendaten durch Bundesorgane',
+      // '3. Kapitel: Register der Datensammlungen, Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter5  und Verfahren vor dem Bundesverwaltungsgericht6',
+      // '4. Kapitel: Schlussbestimmungen' ]
+      .map(s => s.trim()),
+    // fullHtml: $('#lawcontent').html().trim()
+    section0: $('#lawcontent h2').eq(0).text(),
+    art0: $('#lawcontent h5').eq(0).text(),
+    art0Contents: $('#lawcontent h5').eq(0).next().text(), // can also extracts <p> here
+    // art0ContentsHtml: $('#lawcontent h5').eq(0).next().html(), // can also extracts <p> here
+    art1: $('#lawcontent h5').eq(1).text(),
+    art1Contents: $('#lawcontent h5').eq(1).next().text(),
+
   }))
   .then(console.log)
   .catch(console.error)
 
+
+  // .map(function(i, el) {
+  //   this === el
+    // return $(this).text();
+  // }).get().join(' ')
 
 // TODO https://www.admin.ch/opc/search/?text=SR+822.111&source_lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation&lang=de
 const tags = `

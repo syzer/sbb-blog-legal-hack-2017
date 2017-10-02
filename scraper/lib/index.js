@@ -1,5 +1,6 @@
 const util = require('util')
 const fs = require('fs')
+const cheerio = require('cheerio')
 const writeAsync = util.promisify(fs.writeFile)
 const cachios = require('cachios')
 const _ = require('lodash')
