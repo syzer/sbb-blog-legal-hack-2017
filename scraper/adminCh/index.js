@@ -6,10 +6,12 @@ const fs = require('fs')
 const writeAsync = util.promisify(fs.writeFile)
 const cachios = require('cachios')
 const _ = require('lodash')
-const { cheerioLoad, save } = require('./lib')
+const { cheerioLoad, save } = require('../lib/index')
+const { parse } = require('./parser')
 
-// const sr = `822.111` // employment law
-const sr = `235.11` // DSG law
+const sr = `822.111` // employment law
+// const sr = `742.147.2` // employment law
+// const sr = `235.11` // DSG law
 
 // const searchUrl = `https://www.admin.ch/opc/search/?text=SR+822.111&source_lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation&lang=de`
 const searchUrl = `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
@@ -30,32 +32,17 @@ cachios
   .then(cheerioLoad)
   .then($ => ({
     isInForce: $('div.soft-green>div').html() === 'Dieser Text ist in Kraft.',
-    sr: $('h1').eq(2).html(),
+    sr: $('h1').eq(2).html(), // AKA id
     title: $('h1').eq(3).html(),
     preamble: $('a[name=praeambel]').parent().text(),
     chapters: $('h1.title')
-    // jquery is insane
       .map((i, el) => $(el).text()).get()
-      // [ '1. Kapitel: Bearbeiten von Personendaten durch private Personen',
-      // '2. Kapitel: Bearbeiten von Personendaten durch Bundesorgane',
-      // '3. Kapitel: Register der Datensammlungen, Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter5  und Verfahren vor dem Bundesverwaltungsgericht6',
-      // '4. Kapitel: Schlussbestimmungen' ]
       .map(s => s.trim()),
+    contents: parse(
+      $('h1.title').map((i, el) => $(el).text()).get().map(s => s.trim()),
+      $
+    )
     // fullHtml: $('#lawcontent').html().trim()
-    contents: $('#lawcontent h2')
-      .map((i, s) => ({
-        sectionName: $(s).text().trim(),
-        sectionContents: $(s).next()
-          .map((i, e) =>
-            $(e).find('h5')
-              .map((i, e) =>
-                ({
-                  articleName: $(e).text().trim(),
-                  articleContents: $(e).nextAll().html() // can split by <p> need p.name
-                })
-              ).get()
-          ).get()
-      })).get()
   }))
   .then(JSON.stringify)
   .then(console.log)
