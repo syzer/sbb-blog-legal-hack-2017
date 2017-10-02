@@ -43,6 +43,7 @@ test
 - define relevant "Buzz Words" / relevant fields/topics for the matching Notifications
 - push relevant information
 - figure out what needs to be changed in businees process to comply with taht change
+...sdfjsldkfj
 
 
 # TODO (for further revision)
