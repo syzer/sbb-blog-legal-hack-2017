@@ -101,6 +101,8 @@ Voraussetzungen der Verweigerung der Akteneinsicht gemäss Art. 9 DSG. Die Einsi
 Feature :
 bold text => Art. 33 und 47 Abs. 1 lit. a ATSG; Art. 8 DSG => relevant
 
+https://www.admin.ch/opc/de/classified-compilation/19930159/changes.html
+
 
 ## swiss lex (not for free)
 - 3rd party
