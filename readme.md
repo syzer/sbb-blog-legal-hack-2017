@@ -8,7 +8,7 @@ Article is in states: in kraft vs in force
 
 
 ## search for SRG (unique number)
-each document has unique id
+each document has unique id (SR-XXX)
 ex: try searching for DSG:
 [https://www.admin.ch/opc/de/classified-compilation/19920153/index.html]()
 
@@ -26,17 +26,21 @@ no changes in dsg resent changes
 
 
 # challenges(things to solve):
-- figure out new changes on the page(updates to a law)
+- figure out new changes on the page (updates to a law)
 - changes to that particular law vs changes to other laws conceding that particular law
+    - ex: "Geändert in anderem Erlass"
+    - ex: "Berichtigung"  => https://www.admin.ch/opc/de/official-compilation/2016/2307.pdf
+    
 - diffing/comparision between 2 revision
     - [ ] find examples:
     - [ ] sometimes they post just difs ...
     - [ ] sometimes they post new revision ...
-    - [ ] sometimes the post jsut a diff (which is the most interesting)
+    - [ ] sometimes the post just a diff (which is the most interesting)
+    
 - knowing what the change is (that is the meaning or scope)
 - check relevancy
 - push relevant information
-- figurea out what needs to be changed in businees process to comply with taht change
+- figure out what needs to be changed in businees process to comply with taht change
 
 
 # TODO (for further revision)
