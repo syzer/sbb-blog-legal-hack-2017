@@ -31,7 +31,7 @@ no changes in dsg resent changes
     - ex: "Geändert in anderem Erlass"
     - ex: "Berichtigung"  => https://www.admin.ch/opc/de/official-compilation/2016/2307.pdf
     
-- diffing/comparision between 2 revision
+- diffining/comparision between 2 revision
     - [ ] find examples:
     - [ ] sometimes they post just difs ...
     - [ ] sometimes they post new revision ...
@@ -39,6 +39,7 @@ no changes in dsg resent changes
     
 - knowing what the change is (that is the meaning or scope)
 - check relevancy
+- define relevant "Buzz Words" / relevant fields/topics for the matching Notifications
 - push relevant information
 - figure out what needs to be changed in businees process to comply with taht change
 
