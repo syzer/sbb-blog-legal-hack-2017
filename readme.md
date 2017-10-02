@@ -26,9 +26,12 @@ no changes in dsg resent changes
     - [ ] sometimes they post just difs ...
     - [ ] sometimes they post new revision ...
     - [ ] sometimes the post jsut a diff (which is the most interesting)
- 
+- knowing what the change is (that is the meaning or scope)
+- check relevancy
+- push relevant information
+- figurea out what needs to be changed in businees process to comply with taht change
 
 
 # TODO (for further revision)
-## blog
+## blog (its another source)
 http://swissblawg.ch/2017/09/entwurf-des-datenschutzgesetzes.html
