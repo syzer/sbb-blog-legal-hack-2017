@@ -72,8 +72,8 @@ Recent ruling can be found here:
 
 ruling number => Sachgebiet (keywords):
 4A_134/2017: 
-    - Vertragsrecht, 
-    - Beratungsvertrag
+- `Vertragsrecht`, 
+- `Beratungsvertrag`
 BGE - /2017
 
 ### Search for `DSG`
