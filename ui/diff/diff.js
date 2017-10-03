@@ -47,7 +47,7 @@
 
   // get current products and discounts
   Promise.all([
-    axios.get('http://localhost:8080/products.json?limit=44')
+    axios.get('http://localhost:8080/left.json')
       .then(({ data }) => data)
       .then(els => els.map(({ id }) => id))
       .then(ids => {
@@ -57,7 +57,7 @@
         })))
       }),
 
-    axios.get('http://localhost:8080/discounts.json?limit=44')
+    axios.get('http://localhost:8080/right.json')
       .then(({ data }) => data)
       .then(els => els.map(({ id }) => id))
       .then(ids => {
