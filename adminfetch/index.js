@@ -12,11 +12,15 @@ var _handleStatementColumns = function(index, column){
 
 var fetch = function(lastModified)
 {
+    if (lastModified == null) lastModified = new Date();
+
     var items = [];
     return require('./server/lib/blog/index')
         .parse(config.admin_ch_url)
         .then(function(anouncements)
         {
+            items = anouncements;
+
             var latest =  anouncements
                 .filter(function(anouncement)
                 {
@@ -25,7 +29,7 @@ var fetch = function(lastModified)
                 .sort(function(a,b)
                 {
                     return Date.parse(a.pubDate) < Date.parse(b.pubDate);
-                });
+                })
                 /*
                 .map(function(anouncement){
 
@@ -36,29 +40,26 @@ var fetch = function(lastModified)
 
                 //console.log(latest);
 
-                /*
                 .forEach(function(anouncement,index)
                 {
-
                     return require('./server/lib/html/index')
                         .get(anouncement.link)
                         .then(function(result){ return result.data })
                         .then(require('cheerio').load)
                         .then(function($) {
-                                return $('#content table tr:not(:first-child)')
-                                    .each(function(i,statement){
-                                        return $(this).find('td').each(function(i,col)
-                                        {
-                                            if (i == 0) return { link : $(this).text() };
-                                            else return col;
-                                        })
+                                var data = $('#content table tr:not(:first-child)')
+                                    .each(function (i, statement) {
+                                        return $(this).find('td').text();
                                     });
+                                console.log(data);
+                                return data;
                             }
                         )
-                        .then(function(statement))
+                        .then(function(result){
+                            //console.log(result);
+                        })
+                });
 
-                }
-                */
                 var l = latest.shift();
 
                 if (l) {
