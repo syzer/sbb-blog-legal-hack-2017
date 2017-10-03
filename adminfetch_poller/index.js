@@ -9,5 +9,5 @@ setInterval(function () {
             lastModified = newLastModified;
             console.log("done", lastModified)
         })
-}, 2*1000);
+}, 5*1000);
 
