@@ -9,7 +9,7 @@
       return
     }
     const path = e.target.value
-    const url = `http://localhost:8080/${path}`
+    const url = `/${path}`
 
     axios.get(url, { timeout })
       .then(({ data }) => data)
@@ -26,7 +26,7 @@
       return
     }
     const path = e.target.value
-    const url = `http://localhost:8081/${path}`
+    const url = `  /${path}`
 
     axios.get(url, { timeout })
       .then(({ data }) => data)
@@ -47,7 +47,7 @@
 
   // get current products and discounts
   Promise.all([
-    axios.get('http://localhost:8080/left.json')
+    axios.get('/demo/left.json')
       .then(({ data }) => data)
       .then(els => els.map(({ id }) => id))
       .then(ids => {
@@ -57,7 +57,7 @@
         })))
       }),
 
-    axios.get('http://localhost:8080/right.json')
+    axios.get('/demo/right.json')
       .then(({ data }) => data)
       .then(els => els.map(({ id }) => id))
       .then(ids => {
