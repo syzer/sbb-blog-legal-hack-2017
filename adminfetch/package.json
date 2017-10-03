@@ -20,6 +20,7 @@
     "cachios": "^1.0.6",
     "cheerio": "^1.0.0-rc.2",
     "feedparser-promised": "^1.4.2",
+    "lodash": "^4.17.4",
     "mongoose": "^4.11.14",
     "request": "^2.83.0"
   }
