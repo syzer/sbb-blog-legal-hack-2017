@@ -43,7 +43,7 @@ const whenThereAreH1AndH2AndArticles = $ =>
     //   sectionContents: extractArticles($, e)
     // })).get()
 
-// 151
+// 152.1
 // https://www.admin.ch/opc/de/classified-compilation/19994756/index.html
 const whenThereAreH1AndArticles = $ =>
   $('#lawcontent h1.title').map((i, e) => ({
@@ -53,11 +53,11 @@ const whenThereAreH1AndArticles = $ =>
 
 module.exports = {
   parse: (chapters, $) => {
-    if (!_.isEmpty($('#lawcontent h2').html()
-        && $('#lawcontent h2').toArray().length > 2)) {
+    if (!_.isEmpty($('#lawcontent h1').toArray())
+        && $('#lawcontent h2').toArray().length < 2 ) {
       return whenThereAreH1AndArticles($)
     }
-    if (!_.isEmpty($('#lawcontent h1.title'))) {
+    if (!_.isEmpty($('#lawcontent h2.title'))) {
       return whenThereAreH1AndH2AndArticles($)
     }
     return _.isEmpty(chapters)
