@@ -2,7 +2,7 @@
 
 - [X] `admin.ch` extract data for dsg and 
 - [X] `admin.ch` extract data for employement
-- [ ] build classifier for employment/dsg/all others
+- [X] build classifier for employment/dsg/all others
 - [ ] discover new items on the `admin.ch` (Christian)
 - [X] frontend, screens:
     - [X] login / signup

@@ -5,13 +5,13 @@ const readFileAsync = promisify(fs.readFile)
 const { dsg, employment } = require('../scraper/adminCh/interestingSr')
 
 const dsgFiles = dsg.map(sr => require(`../scraper/data/dsg/${sr}.json`))
-const dsgData = dsgFiles.map(({title, preamble}) => ({
+const dsgData = dsgFiles.map(({ title, preamble }) => ({
   title,
   preamble
 }))
 
 const employmentFiles = employment.map(sr => require(`../scraper/data/json/${sr}.json`))
-const employmentData = employmentFiles.map(({title, preamble}) => ({
+const employmentData = employmentFiles.map(({ title, preamble }) => ({
   title,
   preamble
 }))
@@ -19,31 +19,37 @@ const employmentData = employmentFiles.map(({title, preamble}) => ({
 
 const bayes = require('syzer-level-naive-bayes')
 const level = require('level')
-const titles = level('')
-const nb = bayes(db) // where db is a levelup instance
+const titles = level('./data/titles')
+const preambles = level('./data/preambles')
+const nb1 = bayes(titles) // where db is a levelup instance
+const nb2 = bayes(preambles) // where db is a levelup instance
 
-nb.train('positive', 'amazing, awesome movie!! Yeah!! Oh boy.', function() {
-  nb.train('positive', 'this is incredibly, amazing, perfect, great!', function() {
-    nb.train('negative', 'terrible, shitty thing. Damn. Sucks!!', function() {
-      nb.classify('awesome, cool, amazing!! Yay.', function(err, category) {
-        console.log('category is '+category)
-      })
+const titlesClassifier = dsgData
+  .map(({ title }) => title)
+  .map(e => nb1.trainAsync('dsg', e))
+  .concat(
+    employmentData
+      .map(({ title }) => title)
+      .map(e => nb1.trainAsync('employment', e)))
+
+const preambleClassifier = dsgData
+  .map(({ preamble }) => preamble)
+  .map(e => nb2.trainAsync('dsg', e))
+  .concat(
+    employmentData
+      .map(({ preamble }) => preamble)
+      .map(e => nb2.trainAsync('employment', e)))
+
+// test title
+const textToClassify = 'Verordnung über die Beseitigung von Benachteiligungen von Menschen mit Behinderungen'
+Promise.all(titlesClassifier, preambleClassifier)
+  .then(() => Promise.all([
+    nb1.classifyAsync(textToClassify),
+    nb2.classifyAsync(textToClassify)
+  ]))
+    .then(([cat1, cat2]) => {
+      console.log(cat1, 'should be employment')
+      // console.log(cat2, 'should be employment')
     })
-  })
-})
-
-var thingsToDo = [
-  nb.trainAsync('positive', 'Sweet, this is incredibly, amazing, perfect, great!!'),
-  nb.trainAsync('positive', 'amazing, awesome movie!! Yeah!! Oh boy.'),
-  nb.trainAsync('negative', 'terrible, shitty thing. Damn. Sucks!!')
-];
-
-q.all(thingsToDo)
-  .then(function () {
-    return nb.classifyAsync('awesome, cool, amazing!! Yay.')
-  })
-  .then(function (category) {
-    console.log(category, 'should be positive')
-  })
 
 console.log(employmentData)
