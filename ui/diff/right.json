@@ -1,0 +1,67 @@
+{
+  "id": "250230100000",
+  "type": "product",
+  "slug": "bio-lachsfilet-m-haut",
+  "slugs": [],
+  "name": "Bio Lachsfilet m. Haut",
+  "price_info": {
+    "price": "89.40",
+    "original_price": "statt 4.90",
+    "additional_price_info": null,
+    "quantity": null
+  },
+  "no_price_text": "Aktueller Tagespreis",
+  "product_tile_infos": {
+    "brand_label_images": [
+      {
+        "src": "//migros-test.rokka.io/custom/resize-height-25-width-55/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg",
+        "retina_src": "//migros-test.rokka.io/custom/resize-height-50-width-110/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg",
+        "custom": "//migros-test.rokka.io/custom/resize-height-{height}-width-{width}/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg"
+      }
+    ],
+    "no_ratings": false,
+    "price_sub_text": "(ohne Tiefkühl-Produkte)",
+    "has_color_variants": false,
+    "color_variants_hint": "in weiteren Farben erhältlich"
+  },
+  "badge_discount_image": {
+    "src": "//migros-test.rokka.io/xxhdpi_detail/ccafbdfb15b445d4d17ca218f45f609672a3fdc1/30prozent.png",
+    "retina_src": "//migros-test.rokka.io/xxhdpi_detail/ccafbdfb15b445d4d17ca218f45f609672a3fdc1/30prozent.png",
+    "alt": "30%"
+  },
+  "categories": [
+    {
+      "name": "Frischfisch",
+      "code": "BeSS_01010701",
+      "slug": "supermarkt/lebensmittel/fisch-meeresfruechte/frischfisch",
+      "headline": "Leichte Kost: Frischen Fisch bekommen Sie in Ihrer Migros"
+    },
+    {
+      "name": "Fisch & Meeresfrüchte",
+      "code": "BeSS_010107",
+      "slug": "supermarkt/lebensmittel/fisch-meeresfruechte",
+      "headline": "Fisch und Meeresfrüchte: Lecker, gesund und viel Omega 3"
+    },
+    {
+      "name": "Lebensmittel",
+      "code": "BeSS_0101",
+      "slug": "supermarkt/lebensmittel",
+      "headline": "Entdecken Sie unsere frischen Lebensmittel in der Migros"
+    },
+    {
+      "name": "Supermarkt",
+      "code": "BeSS_01",
+      "slug": "supermarkt",
+      "headline": "Ihr Supermarkt für alles, was es zum Leben braucht"
+    }
+  ],
+  "url": "https://test-produkte.migros.ch/bio-lachsfilet-m-haut",
+  "placeholder_src": "https://test-cdn.migros.ch/ch.migros.shared-components/latest/img/loading.gif",
+  "image": {
+    "src": "//migros-test.rokka.io/custom/resize-height-200-width-175/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg",
+    "retina_src": "//migros-test.rokka.io/custom/resize-height-400-width-350/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg",
+    "custom": "//migros-test.rokka.io/custom/resize-height-{height}-width-{width}/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg"
+  },
+  "tracking_information": "{\"name\":\"Bio Lachsfilet m. Haut\",\"id\":\"250230100000\",\"price\":4.9,\"brand\":\"\",\"label1\":\"Migros Bio\",\"category\":\"supermarkt\\/lebensmittel\\/fisch-meeresfruechte\\/frischfisch\",\"variant\":\"\",\"store\":\"supermarkt\",\"bossnumber\":\"040612355510\",\"bessnumber\":\"BeSS_01\",\"refprodId\":\"250230100000\",\"language\":\"de\",\"list\":null,\"listinfo\":null,\"position\":null,\"discounttype\":\"aktion\",\"discountamount\":\"30%\",\"discountedprice\":3.4,\"ratingavg\":null,\"ratingtotal\":null}",
+  "html": "<a\n    class=\"mui-product-tile mui-tracking-information \"\n    href=\"https://test-produkte.migros.ch/bio-lachsfilet-m-haut\"\n    \n     data-trackinginformation=\"{&quot;name&quot;:&quot;Bio Lachsfilet m. Haut&quot;,&quot;id&quot;:&quot;250230100000&quot;,&quot;price&quot;:4.9,&quot;brand&quot;:&quot;&quot;,&quot;label1&quot;:&quot;Migros Bio&quot;,&quot;category&quot;:&quot;supermarkt\\/lebensmittel\\/fisch-meeresfruechte\\/frischfisch&quot;,&quot;variant&quot;:&quot;&quot;,&quot;store&quot;:&quot;supermarkt&quot;,&quot;bossnumber&quot;:&quot;040612355510&quot;,&quot;bessnumber&quot;:&quot;BeSS_01&quot;,&quot;refprodId&quot;:&quot;250230100000&quot;,&quot;language&quot;:&quot;de&quot;,&quot;list&quot;:null,&quot;listinfo&quot;:null,&quot;position&quot;:null,&quot;discounttype&quot;:&quot;aktion&quot;,&quot;discountamount&quot;:&quot;30%&quot;,&quot;discountedprice&quot;:3.4,&quot;ratingavg&quot;:null,&quot;ratingtotal&quot;:null}\"\n>\n    <div class=\"mui-product-tile-header\">\n            <ul class=\"mui-product-tile-brand-image-container mui-product-tile-label-image-container\">\n                    <li>\n\n\n<img class=\"lazyload mui-lazyload\" src=\"//image.migros.ch/original/a19f3b75fb9fc38a747dfa0570c6d7f4e2829495.png\" data-src=\"//migros-test.rokka.io/custom/resize-height-25-width-55/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg\" data-srcset=\"//migros-test.rokka.io/custom/resize-height-25-width-55/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg 1x, //migros-test.rokka.io/custom/resize-height-50-width-110/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg 2x\"\n    />\n<noscript>\n    <img src=\"//migros-test.rokka.io/custom/resize-height-25-width-55/1745e4686c172f292c01aa0662f7acb99774e20c/migros-bio.jpg\"  />\n</noscript>\n\n                    </li>\n            </ul>\n        <div class=\"mui-product-tile-image-container\">\n\n\n<img class=\"lazyload mui-lazyload\" src=\"https://test-cdn.migros.ch/ch.migros.shared-components/latest/img/loading.gif\" data-src=\"//migros-test.rokka.io/custom/resize-height-200-width-175/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg\" data-srcset=\"//migros-test.rokka.io/custom/resize-height-200-width-175/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg 1x, //migros-test.rokka.io/custom/resize-height-400-width-350/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg 2x\"\n    />\n<noscript>\n    <img src=\"//migros-test.rokka.io/custom/resize-height-200-width-175/2c1675aa2aec9151ee307e07a87ac3db390cda4f/bio-lachsfilet-m-haut.jpg\"  />\n</noscript>\n\n        </div>\n\n\n        <div class=\"mui-js-shoppinglist-item-add mui-product-tile-shoppinglist-mobile\" data-setup=\"{'productId': '250230100000', 'type': 'product', 'dialog': {'type': 'shoppinglist'}}\"></div>\n    </div>\n    <div class=\"mui-product-tile-overlay\">\n            <div class=\"mui-product-tile-discount-image-container\">\n\n\n<img class=\"lazyload mui-lazyload\" src=\"//image.migros.ch/original/a19f3b75fb9fc38a747dfa0570c6d7f4e2829495.png\" data-src=\"//migros-test.rokka.io/xxhdpi_detail/ccafbdfb15b445d4d17ca218f45f609672a3fdc1/30prozent.png\" data-srcset=\"//migros-test.rokka.io/xxhdpi_detail/ccafbdfb15b445d4d17ca218f45f609672a3fdc1/30prozent.png 1x, //migros-test.rokka.io/xxhdpi_detail/ccafbdfb15b445d4d17ca218f45f609672a3fdc1/30prozent.png 2x\"\n    alt=\"30%\"/>\n<noscript>\n    <img src=\"//migros-test.rokka.io/xxhdpi_detail/ccafbdfb15b445d4d17ca218f45f609672a3fdc1/30prozent.png\" alt=\"30%\" />\n</noscript>\n\n            </div>\n        <div class=\"mui-product-tile-body\">\n            <div class=\"mui-product-tile-price-container\">\n                    <span class=\"mui-product-tile-price\"> 3.40</span>\n                        <span class=\"mui-product-tile-original-price\">statt 4.90</span>\n                            </div>\n            <div class=\"mui-product-tile-name\">\n                Bio Lachsfilet m. Haut\n            </div>\n                <div class=\"mui-product-tile-info\">\n                    (ohne Tiefkühl-Produkte)\n                </div>\n        </div>\n        <div class=\"mui-product-tile-footer\">\n                <div class=\"mui-js-rating mui-product-tile-rating\" data-id=\"250230100000\"></div>\n            <div class=\"mui-js-shoppinglist-item-add mui-product-tile-shoppinglist\" data-setup=\"{'productId': '250230100000', 'type': 'product', 'dialog': {'type': 'shoppinglist'}}\"></div>\n        </div>\n    </div>\n</a>\n"
+}
