@@ -1,51 +1,47 @@
 // node 8.5
 // nodemon -w ./ -D -e js -x 'node adminCh'
 
-const util = require('util')
-const fs = require('fs')
-const writeAsync = util.promisify(fs.writeFile)
 const cachios = require('cachios')
 const _ = require('lodash')
 const { cheerioLoad, save } = require('../lib/index')
 const { parse } = require('./parser')
+const { dsg } = require('./interestingSr')
 
-const sr = `822.111` // employment law
+// const sr = `822.111` // employment law
 // const sr = `742.147.2` // employment law
 // const sr = `235.11` // DSG law
 
-// const searchUrl = `https://www.admin.ch/opc/search/?text=SR+822.111&source_lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation&lang=de`
-const searchUrl = `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
-
-// https://www.admin.ch/opc/de/classified-compilation/19930159/index.html
-// https://www.admin.ch/opc/de/classified-compilation/20002241/index.html
-
-// Verordnung des WBF über gefährliche und beschwerliche Arbeiten bei Schwangerschaft und Mutterschaft
-// Regulation of the WBF on dangerous and arduous work during pregnancy and maternity
-
+// const searchUrl = `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
+const searchUrl = sr => `http://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation`
 
 // Data is structured Chapter => section => article
 // We can also extracts tags about documents, from tag cloud
-cachios
-  .get(searchUrl)
-  .then(({ data }) => data)
-  .then(save(sr))
-  .then(cheerioLoad)
-  .then($ => ({
-    isInForce: $('div.soft-green>div').html() === 'Dieser Text ist in Kraft.',
-    sr: $('h1').eq(2).html(), // AKA id
-    title: $('h1').eq(3).html(),
-    preamble: $('a[name=praeambel]').parent().text(),
-    chapters: $('h1.title')
-      .map((i, el) => $(el).text()).get()
-      .map(s => s.trim()),
-    contents: parse(
-      $('h1.title').map((i, el) => $(el).text()).get().map(s => s.trim()),
-      $
-    )
-    // fullHtml: $('#lawcontent').html().trim()
-  }))
-  .then(JSON.stringify)
-  .then(console.log)
+
+Promise.all(dsg.map(sr =>
+  cachios
+    .get(searchUrl(sr))
+    .then(({ data }) => data)
+    .then(save(sr))
+    .then(cheerioLoad)
+    .then($ => ({
+      isInForce: $('div.soft-green>div').html() === 'Dieser Text ist in Kraft.',
+      sr: $('h1').eq(2).html(), // AKA id
+      title: $('h1').eq(3).html(),
+      preamble: $('a[name=praeambel]').parent().text(),
+      chapters: $('h1.title')
+        .map((i, el) => $(el).text()).get()
+        .map(s => s.trim()),
+      contents: parse(
+        $('h1.title').map((i, el) => $(el).text()).get().map(s => s.trim()),
+        $
+      ),
+      // fullHtml: $('#lawcontent').html().trim()
+    }))
+    .then(data => JSON.stringify(data, null, 2))
+    .then(save(sr, 'json'))
+    .then(console.log)
+    .catch(console.error)))
+  .then('all Done')
   .catch(console.error)
 
 

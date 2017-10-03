@@ -6,10 +6,11 @@ const cachios = require('cachios')
 const _ = require('lodash')
 
 const cheerioLoad = text => cheerio.load(text, { decodeEntities: false })
-const save = srNumber => {
-  const id = _.uniqueId(srNumber)
+
+const save = (srNumber, type = 'html') => {
+  // const id = _.uniqueId(srNumber)
   return data => {
-    writeAsync(`./data/${id}.html`, data, 'utf-8')
+    writeAsync(`./data/${type}/${srNumber}.${type}`, data, 'utf-8')
       .catch(console.error)
     return data // proxy thru
   }

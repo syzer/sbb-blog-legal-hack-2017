@@ -22,28 +22,46 @@ const extractArticles = ($, s) => $(s).next()
       })).get()
   ).get()
 
-const whenThereAreH1 = $ =>
-  $('#lawcontent h1.title').eq(0).next().eq(0).find('h2')
-    .map((i, e) => ({
-      sectionName: $(e).text().trim(),
-      sectionContents: extractArticles($, e)
-    })).get()
 
-
-const whenThereAreSections = $ =>
+const extractSectionsAndArticles = $ =>
   $('#lawcontent h2')
     .map((i, s) => ({
       sectionName: $(s).text().trim(),
       sectionContents: extractArticles($, s)
     })).get()
 
+
+// '742.147.2',
+const whenThereAreH1AndH2AndArticles = $ =>
+  $('#lawcontent h1.title').map((i, e) => ({
+    chapterName: $(e).text().trim(),
+    chapterContents: extractSectionsAndArticles($, e)
+  })).get()
+    // .next().eq(0).find('h2')
+    // .map((i, e) => ({
+    //   sectionName: $(e).text().trim(),
+    //   sectionContents: extractArticles($, e)
+    // })).get()
+
+// 151
+// https://www.admin.ch/opc/de/classified-compilation/19994756/index.html
+const whenThereAreH1AndArticles = $ =>
+  $('#lawcontent h1.title').map((i, e) => ({
+    sectionName: $(e).text().trim(),
+    sectionContents: extractArticles($, e)
+  })).get()
+
 module.exports = {
   parse: (chapters, $) => {
+    if (!_.isEmpty($('#lawcontent h2').html()
+        && $('#lawcontent h2').toArray().length > 2)) {
+      return whenThereAreH1AndArticles($)
+    }
     if (!_.isEmpty($('#lawcontent h1.title'))) {
-      return whenThereAreH1($)
+      return whenThereAreH1AndH2AndArticles($)
     }
     return _.isEmpty(chapters)
       ? whenAreNoSections($)
-      : whenThereAreSections($)
+      : extractSectionsAndArticles($)
   }
 }
