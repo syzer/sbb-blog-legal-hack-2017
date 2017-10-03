@@ -12,11 +12,15 @@ var _handleStatementColumns = function(index, column){
 
 var fetch = function(lastModified)
 {
+    if (lastModified == null) lastModified = new Date();
+
     var items = [];
     return require('./server/lib/blog/index')
         .parse(config.admin_ch_url)
         .then(function(anouncements)
         {
+            items = anouncements;
+
             var latest =  anouncements
                 .filter(function(anouncement)
                 {
@@ -25,7 +29,7 @@ var fetch = function(lastModified)
                 .sort(function(a,b)
                 {
                     return Date.parse(a.pubDate) < Date.parse(b.pubDate);
-                });
+                })
                 /*
                 .map(function(anouncement){
 
@@ -36,7 +40,7 @@ var fetch = function(lastModified)
 
                 //console.log(latest);
 
-                /*
+
                 .forEach(function(anouncement,index)
                 {
 
@@ -55,10 +59,12 @@ var fetch = function(lastModified)
                                     });
                             }
                         )
-                        .then(function(statement))
+                        .then(function(statement){
 
-                }
-                */
+                        });
+
+                });
+
                 var l = latest.shift();
 
                 if (l) {
