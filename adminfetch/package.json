@@ -1,0 +1,26 @@
+{
+  "name": "sbb-blog-legal-hack-2017",
+  "version": "1.0.0",
+  "description": "LegalHack2017 @Zurich",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syzer/sbb-blog-legal-hack-2017.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syzer/sbb-blog-legal-hack-2017/issues"
+  },
+  "homepage": "https://github.com/syzer/sbb-blog-legal-hack-2017#readme",
+  "dependencies": {
+    "cachios": "^1.0.6",
+    "cheerio": "^1.0.0-rc.2",
+    "feedparser-promised": "^1.4.2",
+    "mongoose": "^4.11.14",
+    "request": "^2.83.0"
+  }
+}

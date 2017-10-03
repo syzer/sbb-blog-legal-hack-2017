@@ -5,19 +5,19 @@ const cachios = require('cachios')
 const _ = require('lodash')
 const { cheerioLoad, save } = require('../lib/index')
 const { parse } = require('./parser')
-const { dsg } = require('./interestingSr')
+const { dsg, employment } = require('./interestingSr')
 
 // const sr = `822.111` // employment law
 // const sr = `742.147.2` // employment law
 // const sr = `235.11` // DSG law
 
-// const searchUrl = `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
+// const searchUrl = sr =>  `https://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=cc&date_range_min=&date_range_max=&d_compilation=both&d_is_in_force=yes&thesaurus=1`
 const searchUrl = sr => `http://www.admin.ch/opc/search/?text=${sr}&lang=de&language%5B%5D=de&product%5B%5D=ClassifiedCompilation`
 
 // Data is structured Chapter => section => article
 // We can also extracts tags about documents, from tag cloud
 
-Promise.all(dsg.map(sr =>
+Promise.all(employment.map(sr =>
   cachios
     .get(searchUrl(sr))
     .then(({ data }) => data)
