@@ -1,7 +1,7 @@
-var fetch = require('../adminfetch');
+const fetch = require('../adminfetch')
 
 // initially get all:
-var lastModified = new Date(1970, 1, 1);
+let lastModified = new Date(1970, 1, 1)
 
 setInterval(() => {
   fetch(lastModified)
