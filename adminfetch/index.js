@@ -40,29 +40,24 @@ var fetch = function(lastModified)
 
                 //console.log(latest);
 
-
                 .forEach(function(anouncement,index)
                 {
-
                     return require('./server/lib/html/index')
                         .get(anouncement.link)
                         .then(function(result){ return result.data })
                         .then(require('cheerio').load)
                         .then(function($) {
-                                return $('#content table tr:not(:first-child)')
-                                    .each(function(i,statement){
-                                        return $(this).find('td').each(function(i,col)
-                                        {
-                                            if (i == 0) return { link : $(this).text() };
-                                            else return col;
-                                        })
+                                var data = $('#content table tr:not(:first-child)')
+                                    .each(function (i, statement) {
+                                        return $(this).find('td').text();
                                     });
+                                console.log(data);
+                                return data;
                             }
                         )
-                        .then(function(statement){
-
-                        });
-
+                        .then(function(result){
+                            //console.log(result);
+                        })
                 });
 
                 var l = latest.shift();
