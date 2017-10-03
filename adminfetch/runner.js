@@ -3,12 +3,6 @@ const fetch = require('./index.js')
 // initially get all:
 let lastModified = new Date(1970, 1, 1)
 
-fetch(lastModified)
-  .then((newLastModified) => {
-    lastModified = newLastModified
-    console.log('done', lastModified)
-  })
-
 const exampleSrsFetchedToday = [
   '221.302',
   '221.302.3',
@@ -33,9 +27,15 @@ const exampleSrsFetchedToday = [
 ]
 
 const { extract } = require('../scraper/adminCh')
-// Promise.all(exampleSrsFetchedToday.map(extract))
-//   .then(console.log)
 
 module.exports = {
-  exampleSrsFetchedToday
+  exampleSrsFetchedToday,
+  fetchAndExtract: () => fetch(lastModified)
+    .then((newLastModified) => {
+      lastModified = newLastModified
+      console.log('done', lastModified)
+    })
+    .then(() =>
+      Promise.all(exampleSrsFetchedToday.map(extract))
+        .then(console.log))
 }
