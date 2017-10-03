@@ -11,7 +11,7 @@ const fetch = (lastModified) => {
     .then(function (anouncements) {
       const items = anouncements
 
-      const latest = anouncements
+      return anouncements
         .filter((anouncement) =>
           Date.parse(anouncement.pubDate) > lastModified)
         .sort((a, b) =>
@@ -28,7 +28,7 @@ const fetch = (lastModified) => {
                   .eq(1).text().trim()).get())
             .then((srs) => {
               const validSrs = srs.filter(e => !_.isEmpty(e))
-              console.log(validSrs)
+              // console.log(validSrs)
               return 'aaa'
             }))
     })
